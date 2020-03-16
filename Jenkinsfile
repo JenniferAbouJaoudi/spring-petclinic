@@ -7,35 +7,15 @@ pipeline {
       }
     }
 
-    stage('Test') {
-      steps {
-        sh 'mvn test'
-      }
-    }
-
-    stage('Package') {
-      steps {
-        sh 'mvn package'
-      }
-    }
-
-    stage('Deploy') {
-      when {
-        branch 'master'
-      }
-      steps {
-        sh './mvnw deploy'
-      }
-    }
-
   }
-  post{
-    success{
-      slackSend channel: 'général', message: 'Success', tokenCredentialId: '38d25e02-a91f-41ee-be54-5a6b62a24687'
+  post {
+    success {
+      slackSend(channel: 'général', message: 'Success', tokenCredentialId: '38d25e02-a91f-41ee-be54-5a6b62a24687')
     }
-    
-    failure{
-      slackSend channel: 'général', message: 'Failed', tokenCredentialId: '38d25e02-a91f-41ee-be54-5a6b62a24687'      
+
+    failure {
+      slackSend(channel: 'général', message: 'Failed', tokenCredentialId: '38d25e02-a91f-41ee-be54-5a6b62a24687')
     }
+
   }
 }
