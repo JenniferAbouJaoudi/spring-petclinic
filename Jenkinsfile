@@ -31,11 +31,11 @@ pipeline {
   }
   post{
     success{
-      slackSend channel: 'soen345', message: 'Success', tokenCredentialId: '38d25e02-a91f-41ee-be54-5a6b62a24687'
+      slackSend channel: 'général', message: 'Success', tokenCredentialId: '38d25e02-a91f-41ee-be54-5a6b62a24687'
     }
     
     failure{
-      slackSend channel: 'soen345', message: 'Failed', tokenCredentialId: '38d25e02-a91f-41ee-be54-5a6b62a24687'      
+      slackSend channel: 'général', message: 'Failed', tokenCredentialId: '38d25e02-a91f-41ee-be54-5a6b62a24687'      
     }
   }
 }
