@@ -31,12 +31,12 @@ pipeline {
   }
   post{
     success{
-      slackSend(color: '#00FF00' ,message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+      slackSend channel: 'soen345', message: 'Success', tokenCredentialId: '38d25e02-a91f-41ee-be54-5a6b62a24687'
     }
     
     failure{
-      slackSend(color: '#FF0000' ,message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-      
-}
+      slackSend channel: 'soen345', message: 'Failed', tokenCredentialId: '38d25e02-a91f-41ee-be54-5a6b62a24687'      
+    }
   }
+}
 }
